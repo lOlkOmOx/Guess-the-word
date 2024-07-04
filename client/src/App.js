@@ -20,8 +20,9 @@ function App() {
   const fetchRandomWord = async () => {
     const characters = 'abcdefghijklmnopqrstuvwxyz';
     const randomLetter = characters.charAt(Math.floor(Math.random() * characters.length))
+    const randomLetter2 = characters.charAt(Math.floor(Math.random() * characters.length))
     try {
-      const response = await fetch(`https://api.datamuse.com/words?sp=??${randomLetter}??&max=1`, {
+      const response = await fetch(`https://api.datamuse.com/words?sp=${randomLetter2}?${randomLetter}??&max=1`, {
         method: 'GET'
       });
       const data = await response.json();
@@ -173,7 +174,11 @@ function App() {
           <Modal show={showLost} centered>
             <Modal.Header>
               <Modal.Title>You lost!</Modal.Title>
-            </Modal.Header>
+              </Modal.Header>
+              <Modal.Body>
+              <h4>The word was {hiddenWord}</h4>
+              </Modal.Body>
+            
             <Modal.Footer>
               <Button variant="danger" onClick={handleNewGame}>Restart</Button>
             </Modal.Footer>
