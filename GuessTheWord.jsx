@@ -1,15 +1,14 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './GuessTheWord.css';
 import { Button, Form, Modal } from "react-bootstrap"
 import React, {useState, useEffect} from 'react';
 
-function App() {
+function GuessTheWord() {
 
   const [hiddenWord, setHiddenWord] = useState("")
   const [guess, setGuess] = useState("")
   const [guessCount, setGuessCount] = useState(1)
   const [g1, setG1] = useState([])
-  const [g2, setG2] = useState([])
+  const [g2, setG2] = useState([]) 
   const [g3, setG3] = useState([])
   const [g4, setG4] = useState([])
   const [g5, setG5] = useState([])
@@ -20,9 +19,8 @@ function App() {
   const fetchRandomWord = async () => {
     const characters = 'abcdefghijklmnopqrstuvwxyz';
     const randomLetter = characters.charAt(Math.floor(Math.random() * characters.length))
-    const randomLetter2 = characters.charAt(Math.floor(Math.random() * characters.length))
     try {
-      const response = await fetch(`https://api.datamuse.com/words?sp=${randomLetter2}?${randomLetter}??&max=1`, {
+      const response = await fetch(`https://api.datamuse.com/words?sp=??${randomLetter}??&max=1`, {
         method: 'GET'
       });
       const data = await response.json();
@@ -92,25 +90,25 @@ function App() {
     }
     switch(guessCount) {
       case 1:
-        setG1(buttons);
-        break;
+        setG1(buttons)
+        break
       case 2:
-        setG2(buttons);
-        break;
+        setG2(buttons)
+        break
       case 3:
-        setG3(buttons);
-        break;
+        setG3(buttons)
+        break
       case 4:
-        setG4(buttons);
-        break;
+        setG4(buttons)
+        break
       case 5:
-        setG5(buttons);
-        break;
+        setG5(buttons)
+        break
       case 6:
-        setG6(buttons);
-        break;
+        setG6(buttons)
+        break
       default:
-        break;
+        break
     }
     const newGuessCount = guessCount + 1
     setGuessCount(newGuessCount)
@@ -137,9 +135,9 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="GuessTheWord">
       <h1>Guess the word!</h1>
-      {hiddenWord}
+      {/*{hiddenWord}*/}
         <div>
           {g1.length === 0 ? (emptyButtons()):(g1)}
           <br />
@@ -159,7 +157,7 @@ function App() {
           <Button variant="success" type="submit" className="SubmitButton" onClick={handleGuess} disabled={!(guess.length === 5)}>Send</Button>
         </Form>
         </div>
-        <Modal show={show} centered>
+        <Modal show={show} centered className="Modal" data-bs-theme="dark">
             <Modal.Header>
               <Modal.Title>You won!</Modal.Title>
             </Modal.Header>
@@ -171,20 +169,17 @@ function App() {
               <Button variant="success" onClick={handleNewGame}>New game</Button>
             </Modal.Footer>
           </Modal>
-          <Modal show={showLost} centered>
+          <Modal show={showLost} centered className="Modal" data-bs-theme="dark">
             <Modal.Header>
               <Modal.Title>You lost!</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-              <h4>The word was {hiddenWord}</h4>
-              </Modal.Body>
-            
+            </Modal.Header>
             <Modal.Footer>
               <Button variant="danger" onClick={handleNewGame}>Restart</Button>
             </Modal.Footer>
           </Modal>
+          <BackButton />
     </div>
-  );
+  )
 }
 
-export default App;
+export default GuessTheWord;

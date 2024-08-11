@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+
+.GuessTheWord {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #121212;
+  min-height: 100vh;
+  margin: 0;
+  color: lightgray
+}
+
+.GuessTheWord h1 {
+  text-align: center;
+  font-family: "Bowlby One SC", sans-serif;
+  font-weight: 400;
+  font-size: 8rem;
+
+}
+
+.GuessTheWord .LetterButton {
+  height: 5rem;
+  width: 5rem;
+  font-size: 3rem;
+  padding: 0;
+  color: white !important;
+  margin: 2px
+}
+
+.GuessTheWord .FormContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.GuessTheWord .Form {
+  width: 38rem;
+  border-radius: 10px 0 0 10px !important;
+  text-align: center;
+} 
+
+.GuessTheWord .form-control {
+  font-size: 3rem;
+  letter-spacing: 3.4rem;
+  padding-left: 7.5rem;
+  background-color: #212529;
+  border: none;
+  color: lightGray;
+}
+
+.GuessTheWord .SubmitButton {
+  width: 26rem;
+  margin-top: 5px;
+  height: 5rem;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+.GuessTheWord h1 {
+  font-size: 5rem
+}
+}
+
+@media screen and (max-width: 600px) {
+.GuessTheWord h1 {
+  font-size: 3rem
+}
+.GuessTheWord .LetterButton {
+  height: 4rem;
+  width: 4rem;
+  font-size: 2rem;
+}
+.GuessTheWord .form-control {
+  font-size: 2rem;
+  letter-spacing: 3.3rem;
+  padding-left: 2rem;
+}
+
+.GuessTheWord .SubmitButton {
+  width: 15rem;
+}
+.GuessTheWord .Form {
+  width: 25rem;
+  border-radius: 10px 0 0 10px !important;
+  text-align: center;
+}
+}
+
+@media screen and (max-width: 400px) {
+.GuessTheWord h1 {
+  font-size: 2rem
+}
+}
